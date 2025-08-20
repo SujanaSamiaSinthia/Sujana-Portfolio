@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujana Samia Sinthia Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',
+                        secondary: '#7e22ce',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active::after {
+            width: 100%;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            left: -7.5px;
+            top: 0;
+            background: linear-gradient(135deg, #0ea5e9, #7e22ce);
+        }
+
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #1e293b;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            transition: width 1s ease-in-out;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            box-shadow: 5px 5px 15px rgba(2, 6, 23, 0.5),
+                -5px -5px 15px rgba(30, 41, 59, 0.5);
+        }
+
+        .contact-input {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+
+        .contact-input:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            20% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .fade-animate {
+            position: absolute;
+            opacity: 0;
+            animation: fadeInOut 24s infinite;
+        }
+
+        .fade-animate:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .fade-animate:nth-child(2) {
+            animation-delay: 4s;
+        }
+
+        .fade-animate:nth-child(3) {
+            animation-delay: 8s;
+        }
+
+        .fade-animate:nth-child(4) {
+            animation-delay: 12s;
+        }
+
+        .fade-animate:nth-child(5) {
+            animation-delay: 16s;
+        }
+
+        .fade-animate:nth-child(6) {
+            animation-delay: 20s;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-slate-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Portfolio</a>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-slate-200 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="Resources/recom.pdf" class="nav-link">Recommendations</a>
+                    <a href="Resources/coursecertificates.pdf" class="nav-link">Certificates</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+                <a href="#home" class="block py-2 nav-link active">Home</a>
+                <a href="#about" class="block py-2 nav-link">About</a>
+                <a href="#skills" class="block py-2 nav-link">Skills</a>
+                <a href="#projects" class="block py-2 nav-link">Projects</a>
+                <a href="#contact" class="block py-2 nav-link">Contact</a>
+                <a href="Resources/recom.pdf" class="nav-link">Recommendations</a>
+                <a href="Resources/coursecertificates.pdf" class="nav-link">Certificates</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Hi, I'm <span class="gradient-text">Sujana</span></h1>
+
+
+
+                <div class="relative h-10">
+                    <h2 class="fade-animate text-2xl md:text-3xl font-semibold text-slate-300">
+                        Frontend Developer
+                    </h2>
+                    <h2 class="fade-animate text-2xl md:text-3xl font-semibold text-slate-300">
+                        UI/UX Designer
+                    </h2>
+                    <h2 class="fade-animate text-2xl md:text-3xl font-semibold text-slate-300">
+                        Web Developer
+                    </h2>
+                    <h2 class="fade-animate text-2xl md:text-3xl font-semibold text-slate-300">
+                        Freelancer
+                    </h2>
+                    <h2 class="fade-animate text-2xl md:text-3xl font-semibold text-slate-300">
+                        Email Marketing Strategist
+                    </h2>
+                    <h2 class="fade-animate text-2xl md:text-3xl font-semibold text-slate-300">
+                        WordPress Developer
+                    </h2>
+                </div>
+
+
+
+
+                <p class="text-lg mb-8 mt-6 text-slate-400 max-w-lg">
+                    I build exceptional digital experiences that are fast, accessible, and visually appealing.
+                    Let's create something amazing together.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="px-6 py-3 rounded-full btn-primary font-medium">Hire Me</a>
+                    <a href="#projects"
+                        class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">View
+                        Work</a>
+                </div>
+                <div class="flex mt-8 space-x-4">
+                    <a href="https://github.com/SujanaSamiaSinthia"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sujana-samia-samia-967075253"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/sujana_sam18719?t=6YojNmcFfvCYSVXxCFbJmg&s=09"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-400">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sujana_samia_sinthia?igsh=ZmQwb3dhNXM2dHhn"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-pink-600">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1D8XpefvrX/"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-pink-600">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-xl opacity-20">
+                    </div>
+                    <img src="Resources/Sujana_myself.jpg" alt="Profile"
+                        class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 floating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="relative w-64 h-64">
+                        <div
+                            class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-secondary blur-xl opacity-20">
+                        </div>
+                        <img src="./Resources/sujana dp.jpg" alt="About"
+                            class="relative w-full h-full object-cover rounded-2xl border-4 border-slate-800">
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-bold mb-6">Who am I?</h3>
+                    <p class="text-slate-400 mb-6">
+                        I'm a passionate Full Stack Developer with 1+ year of experience in HTML, CSS, Bootstrap,
+                        JavaScript, PHP, and Java ecosystems,
+                        skilled in Tailwind CSS, Laravel, Alpine.js, WordPress development, and SQL.
+                        Proficient in Agile development, software design, UI/UX design, building responsive web as well
+                        as mobile solutions and Email Marketing.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-semibold mb-2">Name: <span class="text-slate-300">Sujana Samia
+                                    Sinthia</span></h4>
+                            <h4 class="font-semibold mb-2">Email: <span
+                                    class="text-slate-300">sujanasamia12@gmail.com</span></h4>
+                            <h4 class="font-semibold mb-2">Phone: <span class="text-slate-300">+8801757614622</span>
+                            </h4>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Age: <span class="text-slate-300">26</span></h4>
+                            <h4 class="font-semibold mb-2">Experience: <span class="text-slate-300">1+ Years</span></h4>
+                            <h4 class="font-semibold mb-2">Location: <span
+                                    class="text-slate-300">Malaysia,Selangor</span></h4>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="Resources/Sinthia_CV.pdf"
+                            class="px-6 py-3 rounded-full btn-primary font-medium">Download CV</a>
+                        <a href="#contact"
+                            class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">Contact
+                            Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Timeline -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold mb-8 text-center">My <span class="gradient-text">Experience</span></h3>
+
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-1/2 h-full w-0.5 bg-slate-700 transform -translate-x-1/2"></div>
+
+                    <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                            <h4 class="text-lg font-bold mb-2">Full Stack Developer</h4>
+                            <p class="text-sm text-slate-400 mb-2">MESINKIRA Sdn. Bhd • 2023 - 2024</p>
+                            <p class="text-slate-300">
+                                Involved in making application for the company's internal staff.
+                                Developed function and UI under basis of Laravel PHP, Tailwind CSS, Alpine.Js.
+                                Well -versed in collaborative Github Management.
+                                Involved in staff requirement gathering and their needs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                        <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                            <h4 class="text-lg font-bold mb-2">Junior UI/UX Designer</h4>
+                            <p class="text-sm text-slate-400 mb-2">Pellopay • 2024</p>
+                            <p class="text-slate-300">
+                                Designed a complete website interface for Pellopay, a cryptocurrency company, focusing
+                                on user-friendly navigation,
+                                modern UI elements, and responsive layouts to enhance user experience and brand
+                                credibility.
+                            </p>
+                        </div>
+                        <div class="order-1 w-5/12"></div>
+                    </div>
+
+                    <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                            <h4 class="text-lg font-bold mb-2">Content Analyst</h4>
+                            <p class="text-sm text-slate-400 mb-2">Usarion • 2024 </p>
+                            <p class="text-slate-300">
+                                Conducted competitor and market research, generated innovative business ideas, and
+                                created strategic content aligned with business goals.
+                                Additionally, performed research on AI agents to explore their potential integration
+                                into business solutions and enhance product innovation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                        <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                            <h4 class="text-lg font-bold mb-2">Remote Employee • 2025</h4>
+                            <p class="text-sm text-slate-400 mb-2">Braintrust-Outlier AI</p>
+                            <p class="text-slate-300">
+                                Collaborated remotely on AI-focused projects, contributing to research, data
+                                organization, and content development.
+                                Supported the team by analyzing information, creating structured outputs, and helping
+                                train AI systems with high-quality input data.
+                            </p>
+                        </div>
+                        <div class="order-1 w-5/12"></div>
+                    </div>
+
+                    <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                            <h4 class="text-lg font-bold mb-2">Freelancer-Email Marketing & WordPress Developer</h4>
+                            <p class="text-sm text-slate-400 mb-2">Fiverr • 2024 - 2025</p>
+                            <p class="text-slate-300">
+                                Provided freelance services in email marketing and WordPress development. Designed and
+                                customized responsive websites,
+                                set up themes and plugins, and managed client campaigns using tools like Mailchimp and
+                                Klaviyo to improve engagement and deliverability.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="gradient-text">Skills</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
+
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Laravel PHP</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Wordpress</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Alpine.js</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Professional Skills</h3>
+
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Communication</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Teamwork</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Problem Solving</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Creativity</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools & Technologies -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold mb-8 text-center">Tools & <span class="gradient-text">Technologies</span>
+                </h3>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-js text-4xl text-yellow-400 mb-2"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <svg class="w-10 h-10 mb-2" viewBox="0 0 48 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 0C6.667 0 3.333 2.667 2 8c1.333-2.667 3.333-3.667 6-3 1.639.41 2.826 1.703 4.174 3.161C14.532 10.74 16.338 12.667 20 12.667c5.333 0 8.667-2.667 10-8-1.333 2.667-3.333 3.667-6 3-1.639-.41-2.826-1.703-4.174-3.161C13.468 1.927 11.662 0 8 0H12zM28 14.667c-5.333 0-8.667 2.667-10 8 1.333-2.667 3.333-3.667 6-3 1.639.41 2.826 1.703 4.174 3.161C33.468 26.74 35.274 28.667 39 28.667c5.333 0 8.667-2.667 10-8-1.333 2.667-3.333 3.667-6 3-1.639-.41-2.826-1.703-4.174-3.161C33.468 15.927 31.662 14.667 28 14.667z"
+                                fill="#38BDF8" />
+                        </svg>
+                        <span>Tailwind CSS</span>
+                    </div>
+
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 154" class="w-10 h-10 mb-2">
+                            <path fill="#77C1D2" d="M0 154L64.6 77 0 0h64.6l64.5 77-64.5 77H0z" />
+                            <path fill="#0B1C2C" d="M191.5 0l-64.6 77 64.6 77h64.5l-64.5-77 64.5-77h-64.5z" />
+                        </svg>
+                        <span>Alpine.js</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fas fa-database text-4xl text-blue-300 mb-2"></i>
+                        <span>phpmyadmin</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-npm text-4xl text-red-500 mb-2"></i>
+                        <span>npm</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-wordpress text-4xl text-pink-500 mb-2"></i>
+                        <span>Wordpress</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-figma text-4xl text-purple-500 mb-2"></i>
+                        <span>Figma</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fas fa-terminal text-4xl text-gray-300 mb-2"></i>
+                        <span>VS Code</span>
+                    </div>
+                    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                        <i class="fab fa-linux text-4xl text-white mb-2"></i>
+                        <span>Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="gradient-text">Projects</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Resources/ecomdemoUI.jpg" alt="Project 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                        <p class="text-slate-400 mb-4">
+                            A full-featured e-commerce platform built with Flutterflow and Firebase.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Flutterflow</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Firebase</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="Resources/ecomdemoUI.jpg" class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> UI Demo
+                            </a>
+                            <a href="https://youtu.be/CAM6bN_d29s" class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <!-- <a href="Resources/GETCONNECT DOCUMENTATION.pdf" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> Doc
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Resources/spacereservation.png" alt="Project 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Space Reservation Management System</h3>
+                        <p class="text-slate-400 mb-4">
+                            A productivity app for managing and reserve faculty rooms in UPM through this application.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">PHP</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">phpmyadmin</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">HTML CSS Bootstrap</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Javascript</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://youtu.be/B29LnEGRYzY" class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo Frontend
+                            </a>
+                            <a href="https://youtu.be/L_QWIN2rgk8" class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo Backend
+                            </a>
+                            <a href="https://github.com/SujanaSamiaSinthia/Space-Reservation-Management-System.git"
+                                class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Resources/mesinkira.jpg" alt="Project 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mesinkira Retro-fit</h3>
+                        <p class="text-slate-400 mb-4">
+                            A Laravel-based internal staff management application with tailored UI,
+                            built using Tailwind CSS and Alpine.js to meet employee requirements efficiently.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Laravel PHP</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Linux(Arch)</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Livewire</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Alpine.Js</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Tailwind Css</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="Resources/Industrial Training.pdf" class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> Doc
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Resources/pellopay.png" alt="Project 4" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pellopay</h3>
+                        <p class="text-slate-400 mb-4">
+                            Designed a complete, user-friendly cryptocurrency platform interface for Pellopay using
+                            Figma,
+                            focusing on modern aesthetics and seamless user experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Figma</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://www.figma.com/design/cXH4Jvnl7XlO4jZCLP3vtk/Pellopay?node-id=0-1&t=YclNLxZ62n0tKwHS-1"
+                                class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Resources/sujanafiverr.jpg" alt="Project 5" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Email Marketing</h3>
+                        <p class="text-slate-400 mb-4">
+                            Provided professional email marketing services on Fiverr, creating targeted campaigns to
+                            boost client engagement and conversions.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Mailchimp</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Klaviyo</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://www.fiverr.com/s/Gzb9XYd" class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <!-- <a href="#" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> Code
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Resources/websites1.png"
+                            alt="Project 6" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Websites</h3>
+                        <p class="text-slate-400 mb-4">
+                            A dynamic, customizable website built using WordPress for easy content management and responsive design.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Wordpress</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Plugins</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Themes</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">phpmyadmin</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://youtu.be/9BdKkt1YwO4" class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="Resources/websites.pdf" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> UI Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+    <button id="view-more-btn" 
+        class="px-8 py-3 rounded-full btn-primary font-medium inline-flex items-center">
+        View All Projects <i class="fas fa-arrow-right ml-2"></i>
+    </button>
+</div>
+
+<!-- Extra projects (hidden by default) -->
+<div id="more-projects" class="hidden mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 7 -->
+        <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="Resources/partnarportal.png"
+                            alt="Project 6" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Partner Portal (Mobile Community)</h3>
+                        <p class="text-slate-400 mb-4">
+                            A mobile partner portal app that enables vendors and companies to manage profiles, orders, invoices, and shipments within a collaborative community platform.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Figma</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://www.figma.com/proto/PGJgp2Emc3j5OEUPegojhO/Partner-Portal---Mobile--Community-?node-id=1-2&p=f&t=0YMhIvdPLWtVsUUt-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2" class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://www.figma.com/design/PGJgp2Emc3j5OEUPegojhO/Partner-Portal---Mobile--Community-?node-id=0-1&t=nXsId39RfDKJPGmG-1" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> UI Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+</div>
+
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <p class="text-slate-400 mb-8">
+                        Feel free to reach out to me for any questions or opportunities.
+                        I'm always open to discussing new projects, creative ideas or opportunities to be part of your
+                        vision.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Location</h4>
+                                <p class="text-slate-400">Malaysia, Selangor</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-slate-400">sujanasamia12@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone or Whatsapp</h4>
+                                <p class="text-slate-400">+8801757614622</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/SujanaSamiaSinthia"
+                                class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sujana-samia-samia-967075253"
+                                class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://x.com/sujana_sam18719?t=6YojNmcFfvCYSVXxCFbJmg&s=09"
+                                class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-400">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/sujana_samia_sinthia?igsh=ZmQwb3dhNXM2dHhn"
+                                class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-pink-600">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/share/1D8XpefvrX/"
+                                class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-pink-600">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.004709921158!2d101.71795927580546!3d2.981239697990757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb6e5fa7f6e61%3A0x1a401e1a24452b84!2sUniversiti%20Putra%20Malaysia!5e0!3m2!1sen!2smy!4v1694201824292!5m2!1sen!2smy"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text">Portfolio</a>
+                    <p class="text-slate-400 mt-2">© 2025 Sujana Samia Sinthia</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="https://github.com/SujanaSamiaSinthia"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sujana-samia-samia-967075253"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://x.com/sujana_sam18719?t=6YojNmcFfvCYSVXxCFbJmg&s=09"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-400">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sujana_samia_sinthia?igsh=ZmQwb3dhNXM2dHhn"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-pink-600">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1D8XpefvrX/"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-pink-600">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500">
+                <p>Work with <i class="fas fa-heart text-red-500"></i> and lots of <i
+                        class="fas fa-coffee text-amber-500"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-20 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/8801757614622"
+        class="fixed bottom-8 right-4 z-50 w-12 h-12 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
+        target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+
+                    // Update active link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Update active link on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+
+            // Show/hide back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            if (scrollPosition > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        // Back to top button
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate skill bars on scroll
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const skillsSection = document.getElementById('skills');
+            const skillsSectionTop = skillsSection.offsetTop;
+            const windowHeight = window.innerHeight;
+
+            if (window.scrollY > skillsSectionTop - windowHeight + 200) {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+
+                // Remove event listener after animation
+                window.removeEventListener('scroll', animateSkillBars);
+            }
+        };
+
+        window.addEventListener('scroll', animateSkillBars);
+
+        //more projects
+        document.getElementById("view-more-btn").addEventListener("click", function () {
+        const moreProjects = document.getElementById("more-projects");
+        
+        if (moreProjects.classList.contains("hidden")) {
+            moreProjects.classList.remove("hidden");
+            this.innerHTML = 'Show Less <i class="fas fa-arrow-up ml-2"></i>';
+        } else {
+            moreProjects.classList.add("hidden");
+            this.innerHTML = 'View All Projects <i class="fas fa-arrow-right ml-2"></i>';
+        }
+    });
+    </script>
+
+
+</body>
+
+</html>
